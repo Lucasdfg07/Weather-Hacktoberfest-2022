@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: lucas
+  password: Capivar@123
+
+development:
+  <<: *default
+  database: weather_prevision_hacktoberfest_development
+
+test:
+  <<: *default
+  database: weather_prevision_hacktoberfest_test
+
+production:
+  <<: *default
+  database: weather_prevision_hacktoberfest_production
+  username: weather_prevision_hacktoberfest
+  password: <%= ENV["WEATHER_PREVISION_HACKTOBERFEST_DATABASE_PASSWORD"] %>
